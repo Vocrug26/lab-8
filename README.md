@@ -275,7 +275,147 @@ function words(n)
     if(num > 1 && num < 5) return n+" товара";
     if(num == 1) return n+" товар";
     return n+" товаров";
-}```
+}
+
+
+Решения заданий с codewars:
+
+Задание 1
+
+class Converter {
+  c_bytes = 0;
+  constructor(size, unit)
+  {
+    this.size = size;
+    this.unit = unit;
+    
+  switch(unit) 
+  {
+    case "B": {
+      this.c_bytes = size;
+      break;
+    }
+    case "KB": {
+      this.c_bytes = size * 1024;
+      break;
+    }
+      case "MB": {
+      this.c_bytes = size * 1024 * 1024;
+      break;
+    }
+      case "GB": {
+      this.c_bytes = size * 1024 * 1024 * 1024;
+      break;
+    }
+      case "TB": {
+      this.c_bytes = size * 1024 * 1024 * 1024 * 1024;
+      break;
+    }
+      }
+  }
+  
+  toB()
+  {
+    this.unit = "B";
+    this.size = `${this.c_bytes} ${this.unit}`;
+  }
+  
+  toKB()
+  {
+    this.unit = "KB";
+    let size = this.RoundSize(this.c_bytes / 1024);
+    this.size = `${size} ${this.unit}`;
+  }
+  
+  toMB()
+  {
+    this.unit = "MB";
+    let size = this.RoundSize(this.c_bytes / (1024 * 1024));
+    this.size = `${size} ${this.unit}`;
+  }
+  
+  toGB()
+  {
+    this.unit = "GB";
+    let size = this.RoundSize(this.c_bytes / (1024 * 1024 * 1024));
+    this.size = `${size} ${this.unit}`;
+  }
+  
+  toTB()
+  {
+    this.unit = "TB";
+    let size = this.RoundSize(this.c_bytes / (1024 * 1024 * 1024 * 1024));
+    this.size = `${size} ${this.unit}`;
+  }
+
+  RoundSize(size)
+  {
+    return Math.floor(size * 1000) / 1000;
+  }
+  }
+Задание 2
+
+function tiaosheng(failedCount){
+  let count = 0, seconds = 0, i = 0;
+  if (failedCount.length > 0 && failedCount.length <= 60)
+    {
+          while (count < 60 && seconds < 60)
+            {
+              if (count != failedCount[i])
+                {
+                  count++;
+                  seconds++;
+                }
+              else
+                {
+                  seconds += 3;
+                  i++;
+                }
+            }
+    }
+  else 
+    {
+      if (failedCount.length == 0)
+        count = 60;
+    }
+
+  return count;
+}
+Задание 3
+
+function xPlusY(n) {
+    let result = 0;
+    while (n.indexOf("1") < n.length - 1 && n.indexOf("1") != -1)
+    {
+        if (n.indexOf("11") < n.indexOf("10") && n.indexOf("11") != -1)
+        { 
+          n = n.replace("11", "00"); 
+          result++;
+        }
+        else 
+        {
+            if (n.indexOf("10") != -1)
+            { 
+              n = n.replace("10", "01"); 
+              result++;
+            }
+            else 
+            { 
+              n = n.replace("11", "00"); 
+              result++;
+            }
+        }
+    }
+    if (n[n.length - 1] == "1")
+        result++;
+    return result;
+}
+Задание 4
+
+function countTriangles(n){
+  return (6 * (n**3) + 9 * (n**2) + 2*n - (n % 2)) / 2;
+}
+```
 ### **Вывод:**
 После выполнения данной лабораторной работы я улучшил свои навыки работы с JavaScript.
 
